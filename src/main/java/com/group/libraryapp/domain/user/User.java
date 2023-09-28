@@ -5,6 +5,7 @@ import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -46,9 +47,9 @@ public class User {
 
   public void returnBook(String bookName) {
     UserLoanHistory targetHistory = this.userLoanHistories.stream()
-        .filter(history -> history.getBookName().equals(bookName))
-        .findFirst()
-        .orElseThrow();
+            .filter(history -> history.getBookName().equals(bookName) && history.isReturn()==false)
+            .findFirst()
+            .orElseThrow();
     targetHistory.doReturn();
   }
 
