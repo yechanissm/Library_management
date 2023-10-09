@@ -11,7 +11,7 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 
 @Entity
-class User(
+class User (
 
         var name: String,
 
