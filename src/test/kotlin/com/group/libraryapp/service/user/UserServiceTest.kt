@@ -24,6 +24,7 @@ class UserServiceTest(
     //중요한 부분!! 각 데이터베이스 테스트 초기화
     @AfterEach
     fun clean() {
+        println("클린 시작")
         userRepository.deleteAll()
     }
 
